@@ -10,21 +10,18 @@ void solve()
 
     for(char ch : s)
     {
+        int lowerflag = 0;
+        int upperflag = 0;
         if (ch >= 'a' && ch <= 'z'){
-            flag |= (1 << (ch - 'a'));
+            lowerflag |= (1 << (ch - 'a'));
         }
 
         else if (ch >= 'A' && ch <='Z'){
-            flag |= (1 << (ch - 'A'));
+            upperflag |= (1 << (ch - 'A'));
         }
     }   
 
-    int allLetters = (1 << 26) - 1;
-
-    if(flag == allLetters)
-        cout << "Yes";
-    else
-        cout << "No";
+    cout<<(lowerflag == ((1<<26)-1) && upperflag == ((1<<26)-1) ? "Yes" : "No")<<endl;
 }
 
 int main()
