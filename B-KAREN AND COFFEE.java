@@ -12,7 +12,6 @@ public class Main {
 
         int[] arr = new int[max + 2];
 
-        // Mark the ranges
         for (int i = 0; i < n; i++) {
             int left = sc.nextInt();
             int right = sc.nextInt();
@@ -21,14 +20,12 @@ public class Main {
             arr[right + 1]--;
         }
 
-        // Find how many recipes cover each position
         for (int i = 1; i <= max; i++) {
             arr[i] += arr[i - 1];
         }
 
         int[] prefix = new int[max + 1];
 
-        // Build prefix array directly
         for (int i = 1; i <= max; i++) {
             prefix[i] = prefix[i - 1];
 
@@ -37,7 +34,6 @@ public class Main {
             }
         }
 
-        // Answer queries
         while (q-- > 0) {
             int left = sc.nextInt();
             int right = sc.nextInt();
